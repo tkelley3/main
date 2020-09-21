@@ -1,0 +1,521 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21545,        513]
+NotebookOptionsPosition[     17857,        449]
+NotebookOutlinePosition[     18270,        465]
+CellTagsIndexPosition[     18227,        462]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Basic Objects in Wolfram", "Title",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+  3.8095529183748026`*^9, 
+  3.809552918960376*^9}},ExpressionUUID->"ce4ec1ce-37f4-4b8e-9df4-\
+4b9c4fab791b"],
+
+Cell["\<\
+https://reference.wolfram.com/language/tutorial/BasicObjects.html\
+\>", "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+  3.8095529183748026`*^9, 3.809552925265918*^9}, {3.8096213774668617`*^9, 
+  3.809621378359028*^9}},ExpressionUUID->"5b5b2f5f-ffbc-4d19-8087-\
+9179009705aa"],
+
+Cell[CellGroupData[{
+
+Cell["Atomic Objects", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+  3.8095529183748026`*^9, 3.809552925265918*^9}, {3.8096213774668617`*^9, 
+  3.8096214075969124`*^9}},ExpressionUUID->"e018ed72-3a4c-482b-8767-\
+09edd29456cc"],
+
+Cell[TextData[{
+ StyleBox["All expressions in the Wolfram Language are ultimately made up \
+from a small number of basic or atomic types of objects",
+  FontWeight->"Bold"],
+ ".\nThese objects have heads that are symbols that can be thought of as \
+\"tagging\" their types. The objects contain \"raw data\", which can usually \
+be accessed only by functions specific to the particular type of object. You \
+can extract the head of the object using ",
+ StyleBox["Head",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ ", but you cannot directly extract any of its other parts."
+}], "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+   3.8095529183748026`*^9, 3.809552925265918*^9}, {3.8096213774668617`*^9, 
+   3.8096213816419845`*^9}, 
+   3.809621413600292*^9},ExpressionUUID->"ead51f6b-239d-483d-90e3-\
+9db0a4434e4d"],
+
+Cell[BoxData[{
+ RowBox[{"z1", "=", 
+  RowBox[{"44", "+", 
+   RowBox[{"66", "*", "3"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"AtomQ", "[", "z1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Head", "[", "z1", "]"}]}], "Input",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+  3.8095529183748026`*^9, 3.809552925265918*^9}, {3.8096213774668617`*^9, 
+  3.8096213816419845`*^9}, {3.809621416332423*^9, 3.8096214593812966`*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"04490af2-8e3c-4725-bd64-e557923a4b00"],
+
+Cell[BoxData[{
+ RowBox[{"z2", "=", 
+  RowBox[{"22", "+", "x", "+", "y"}]}], "\[IndentingNewLine]", 
+ RowBox[{"AtomQ", "[", "z", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Head", "[", "z", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"z", "[", 
+  RowBox[{"[", "2", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"AtomQ", "[", 
+  RowBox[{"z", "[", 
+   RowBox[{"[", "2", "]"}], "]"}], "]"}], "\n"}], "Input",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.8095526751178784`*^9}, {
+  3.8095529183748026`*^9, 3.809552925265918*^9}, {3.8096213774668617`*^9, 
+  3.8096213816419845`*^9}, {3.809621416332423*^9, 3.809621471610962*^9}, {
+  3.80962489327879*^9, 
+  3.8096249084589033`*^9}},ExpressionUUID->"25208e47-210c-4a9a-80e0-\
+9aea18e4b178"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Numbers", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552719922863*^9}, 3.8095527712649164`*^9, 
+   3.809617931495482*^9},ExpressionUUID->"5c076d0e-f35e-49f3-9fc8-\
+c3e0baa60834"],
+
+Cell[TextData[{
+ "All numbers in the Wolfram Language can contain any number of digits. The \
+Wolfram Language does exact computations ",
+ StyleBox["when possible ",
+  FontSlant->"Italic"],
+ "with integers and rational numbers, and with complex numbers whose real and \
+imaginary parts are integers or rational numbers.\nThere are two types of \
+approximate real numbers in the Wolfram Language: "
+}], "Text",
+ CellChangeTimes->{{3.809618009535016*^9, 3.8096180964532175`*^9}, 
+   3.80961834962603*^9, {3.809618386810007*^9, 3.8096184171330786`*^9}, 
+   3.809618475143342*^9},ExpressionUUID->"db32cf07-bf98-4886-99c4-\
+b7919ec6abb2"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["arbitrary precision",
+  FontSlant->"Italic"],
+ " - in which Wolfram Language tries to modify the precision so as to ensure \
+that all digits actually given are correct"
+}], "Item",
+ CellChangeTimes->{{3.809618009535016*^9, 3.8096180964532175`*^9}, 
+   3.80961834962603*^9, {3.809618386810007*^9, 3.8096184171330786`*^9}, {
+   3.8096185008145905`*^9, 
+   3.8096185222359505`*^9}},ExpressionUUID->"6a5e9d75-a858-4af3-8c86-\
+3408583d3939"],
+
+Cell[TextData[{
+ StyleBox["machine precision",
+  FontSlant->"Italic"],
+ " - in which all computations are done to the same fixed precision, so some \
+digits given may not be correct."
+}], "Item",
+ CellChangeTimes->{{3.809618009535016*^9, 3.8096180964532175`*^9}, 
+   3.80961834962603*^9, {3.809618386810007*^9, 3.8096184171330786`*^9}, {
+   3.809618527987625*^9, 
+   3.8096185627553124`*^9}},ExpressionUUID->"13742c75-05b6-4c2f-a575-\
+4badc65158b9"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Unless otherwise specified, the Wolfram Language treats as \
+machine\[Hyphen]precision numbers all approximate real numbers that lie \
+between ",
+ StyleBox["$MinMachineNumber ",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ "and ",
+ StyleBox["$MaxMachineNumber ",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ "and that are input with less than $",
+ StyleBox["MachinePrecision",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ " digits."
+}], "Text",
+ CellChangeTimes->{{3.809618009535016*^9, 3.8096180964532175`*^9}, 
+   3.80961834962603*^9, {3.809618386810007*^9, 3.8096184171330786`*^9}, {
+   3.809618527987625*^9, 
+   3.8096185743600836`*^9}},ExpressionUUID->"a64c4943-80e9-468d-a0a0-\
+b01546621a88"],
+
+Cell[BoxData[{"$MinMachineNumber", "\[IndentingNewLine]", \
+"$MaxMachineNumber", "\[IndentingNewLine]", "$MachinePrecision", "\
+\[IndentingNewLine]", 
+ RowBox[{"x", "=", 
+  RowBox[{"{", 
+   RowBox[{"\[Pi]", ",", " ", "8", ",", " ", 
+    RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.809618009535016*^9, 3.8096180217105384`*^9}, {
+  3.8096180995002747`*^9, 3.8096181159601536`*^9}, {3.809618662753476*^9, 
+  3.8096186818240013`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"5bacc937-1a73-4321-9f33-3022c912caea"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Cos", "[", "x", "]"}], "+", 
+  RowBox[{"\[Pi]", " ", 
+   RowBox[{"Sin", "[", "x", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8096181238198714`*^9, 3.809618166912472*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"d0008db0-b2d3-4db7-80ac-38e7156e6077"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Character Strings", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527367003393`*^9}, 3.8095529701944866`*^9, {
+   3.809618174820572*^9, 
+   3.809618177176372*^9}},ExpressionUUID->"68f2b286-9dae-4f8a-bd8d-\
+955fb3189cee"],
+
+Cell["\<\
+Character strings in the Wolfram Language can contain any sequence of \
+characters. Strings must be surrounded by quotation marks (\
+\[OpenCurlyDoubleQuote]string\[CloseCurlyDoubleQuote]).
+The individual characters can be printable ASCII (with character codes \
+between 32 and 126), or in general any 8\[Hyphen], 16\[Hyphen] or 21-bit \
+characters. The Wolfram Language uses the Unicode character set for 16\
+\[Hyphen] and 21-bit characters.\
+\>", "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527367003393`*^9}, 3.8095529701944866`*^9, {
+   3.809618174820572*^9, 3.809618188777364*^9}, {3.8096187189066615`*^9, 
+   3.809618719543396*^9}, 3.8096187664704876`*^9, {3.8096210477684774`*^9, 
+   3.8096211039129705`*^9}},ExpressionUUID->"b3e0bfe9-856d-46a0-97c1-\
+51e6438dd5a9"],
+
+Cell[BoxData[
+ RowBox[{"text1", "=", 
+  "\"\<The quick brown fox jumped over the lazy dog.\>\""}]], "Input",
+ CellChangeTimes->{{3.809618727900858*^9, 3.8096187292318316`*^9}, {
+  3.8096187704139385`*^9, 3.809618791154254*^9}, {3.8096193823715196`*^9, 
+  3.8096193923115644`*^9}},ExpressionUUID->"1763f45c-1da2-4c06-8ad7-\
+28a46a1b64b9"],
+
+Cell[BoxData[{
+ RowBox[{"w", "=", 
+  RowBox[{"WordCounts", "[", "text1", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"l", "=", 
+  RowBox[{"LetterCounts", "[", 
+   RowBox[{"ToLowerCase", "[", "text1", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"sub", " ", "=", " ", 
+  RowBox[{"StringSplit", "[", 
+   RowBox[{"text1", ",", "\"\< \>\""}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"sub", "[", 
+  RowBox[{"[", "4", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.809618727900858*^9, 3.8096187292318316`*^9}, {
+  3.8096187704139385`*^9, 3.809618791154254*^9}, {3.8096193823715196`*^9, 
+  3.809619425617098*^9}, {3.809619508549877*^9, 3.8096195553162723`*^9}, {
+  3.8096196556575193`*^9, 3.809619749313443*^9}, {3.809619907160646*^9, 
+  3.8096199691298437`*^9}, {3.809620019640438*^9, 3.80962002087818*^9}, {
+  3.809624994750736*^9, 3.8096250593915443`*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"e9adeae2-7ddd-4fe5-8d2b-a6061ad9303b"],
+
+Cell[BoxData[{
+ RowBox[{"Head", "[", "l", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Keys", "[", "l", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"KeySort", "[", "l", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Values", "[", "l", "]"}]}], "Input",
+ CellChangeTimes->{{3.809618727900858*^9, 3.8096187292318316`*^9}, {
+   3.8096187704139385`*^9, 3.809618791154254*^9}, {3.8096193823715196`*^9, 
+   3.809619425617098*^9}, {3.809619508549877*^9, 3.8096195553162723`*^9}, {
+   3.8096196556575193`*^9, 3.809619749313443*^9}, {3.809619907160646*^9, 
+   3.8096199691298437`*^9}, {3.809620019640438*^9, 3.80962002087818*^9}, 
+   3.809624994750736*^9},
+ CellLabel->
+  "In[132]:=",ExpressionUUID->"50ad2f39-c1a8-4974-a779-2b01967f1810"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Symbols", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527458434753`*^9}, 3.8095529716193657`*^9, 
+   3.8096200801994967`*^9},ExpressionUUID->"e58ae227-8952-4e88-b50c-\
+ef48f61b5be6"],
+
+Cell[TextData[{
+ "Symbols are the basic named objects in the Wolfram Language. The name of a \
+symbol must be a sequence of letters, letter\[Hyphen]like forms, and digits, \
+not starting with a digit. ",
+ StyleBox["Uppercase and lowercase letters are always distinguished in the \
+Wolfram Language.",
+  FontWeight->"Bold"],
+ "\nSystem\[Hyphen]defined symbols conventionally have names that consist of \
+one or more complete English words. The first letter of each word is \
+capitalized, and the words are run together.\nOnce created, an ordinary \
+symbol in the Wolfram Language continues to exist unless it is explicitly \
+removed using Remove. However, symbols created automatically in scoping \
+constructs such as Module carry the attribute ",
+ StyleBox["Temporary",
+  FontSlant->"Italic"],
+ ", which specifies that they should automatically be removed as soon as they \
+no longer appear in any expression."
+}], "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527458434753`*^9}, 3.8095529716193657`*^9, 
+   3.809620087055084*^9, {3.809620198624316*^9, 
+   3.809620229486207*^9}},ExpressionUUID->"798b7dcf-bbae-4a65-b02e-\
+8ea2ccc082b9"],
+
+Cell[BoxData[
+ RowBox[{"sb", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+   "\[Pi]", ",", "\[ImaginaryI]", ",", "\[ExponentialE]", ",", 
+    "\[Infinity]"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527458434753`*^9}, 3.8095529716193657`*^9, {
+   3.8096200885465884`*^9, 3.8096200885596886`*^9}, {3.8096201333567114`*^9, 
+   3.80962014139398*^9}, {3.809620266702736*^9, 3.8096203162512445`*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"dd2a206a-0b15-4569-971e-39d9fd6207ff"],
+
+Cell[BoxData[{
+ RowBox[{"Head", "[", "sb", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Remove", "[", "sb", "]"}]}], "Input",
+ CellChangeTimes->{{3.809620144037798*^9, 3.809620145802765*^9}, {
+  3.809620339950824*^9, 3.8096203427849884`*^9}, {3.809621164494172*^9, 
+  3.8096211678112144`*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"831f841d-98d5-4e32-94d7-6ba619579f12"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Expressions", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, 
+   3.80962085679274*^9},ExpressionUUID->"cd2c0f2e-561b-4c0e-baef-\
+20bf6a9783e5"],
+
+Cell[TextData[{
+ "Expressions are the main type of data in the Wolfram Language. Expressions \
+can be written in the form ",
+ StyleBox["h[e1,e2,\[Ellipsis]]:",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"]
+}], "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, {
+   3.8096208586968184`*^9, 3.809620867588931*^9}, {3.8096211836367474`*^9, 
+   3.8096211864267783`*^9}},ExpressionUUID->"231d9094-83d5-487d-86e9-\
+5b6e4b244381"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ " The object ",
+ StyleBox["h",
+  FontFamily->"Consolas",
+  FontWeight->"Normal",
+  FontSlant->"Italic"],
+ " is the head of the expression"
+}], "Item",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, {
+   3.8096208586968184`*^9, 3.809620867588931*^9}, {3.8096211836367474`*^9, 
+   3.80962122000449*^9}},ExpressionUUID->"7e2ec1c5-4c01-4d3f-a70f-\
+6ffe3a2f70c3"],
+
+Cell[TextData[{
+ " The ",
+ StyleBox["ei",
+  FontFamily->"Consolas",
+  FontWeight->"Normal",
+  FontSlant->"Italic"],
+ " are termed the ",
+ StyleBox["elements",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " of the expression. "
+}], "Item",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, {
+   3.8096208586968184`*^9, 3.809620867588931*^9}, {3.8096211836367474`*^9, 
+   3.8096212656127872`*^9}},ExpressionUUID->"3071615a-e359-4d6d-8fda-\
+ed14ca69155b"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Both the head and the elements may themselves be expressions.\nThe parts of \
+an expression can be referred to by numerical indices. The head has index 0; \
+elements have index i. ",
+ StyleBox["Part[expr,i]",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ " or ",
+ StyleBox["expr[[i]] ",
+  FontFamily->"Consolas",
+  FontWeight->"Normal"],
+ "gives the part of expr with index i. Negative indices count from the end."
+}], "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, {
+   3.8096208586968184`*^9, 3.809620867588931*^9}, {3.8096211836367474`*^9, 
+   3.8096211938513284`*^9}, {3.80962126799537*^9, 
+   3.809621288193207*^9}},ExpressionUUID->"c86aabf7-6c97-47aa-815f-\
+c9a858019de2"],
+
+Cell[BoxData[{
+ RowBox[{"expr", " ", "=", " ", 
+  FractionBox[
+   RowBox[{"k", " ", "Q", " ", "q"}], 
+   SuperscriptBox["r", "2"]]}], "\[IndentingNewLine]", 
+ RowBox[{"Head", "[", "expr", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"expr", "[", 
+  RowBox[{"[", "4", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.809552754849552*^9}, 3.809552975664756*^9, {
+   3.8096208586968184`*^9, 3.8096208612494297`*^9}, {3.809621504696801*^9, 
+   3.8096215882069244`*^9}},
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"d3f8edc1-9ccc-4208-8ca7-cb50492b7814"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Contexts", "Section",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527607777605`*^9}, 3.8095529770539546`*^9, 
+   3.80962039431919*^9},ExpressionUUID->"d7157366-1e37-46ea-9cb6-\
+2580d77a7b08"],
+
+Cell[TextData[{
+ "The full name of any symbol in the Wolfram Language consists of two parts: \
+a ",
+ StyleBox["context",
+  FontSlant->"Italic"],
+ " and a ",
+ StyleBox["short name",
+  FontSlant->"Italic"],
+ ". The full name is written in the form context`name. The context context` \
+can contain the same characters as the short name. It may also contain any \
+number of context mark characters `, and must end with a context mark. \n",
+ StyleBox["For the most part, you don\[CloseCurlyQuote]t have to worry about \
+Contexts in Mathematica - I didn\[CloseCurlyQuote]t even understand them for \
+the first 5 years I used the language.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527607777605`*^9}, 3.8095529770539546`*^9, {
+   3.80962039778574*^9, 3.809620398414441*^9}, 3.8096204803301797`*^9, {
+   3.8096248140822797`*^9, 
+   3.809624863236936*^9}},ExpressionUUID->"0f2d2b8b-4a52-4ab5-87a8-\
+d5cf53567431"],
+
+Cell[BoxData["$ContextPath"], "Input",
+ CellChangeTimes->{{3.8095526527661924`*^9, 3.809552668064085*^9}, {
+   3.809552702916587*^9, 3.8095527607777605`*^9}, 3.8095529770539546`*^9, {
+   3.80962039778574*^9, 3.8096204274840097`*^9}, {3.809621808570363*^9, 
+   3.809621822822263*^9}, {3.809624778335189*^9, 
+   3.8096248030011377`*^9}},ExpressionUUID->"496bb8ca-9bf7-4c06-8fbb-\
+9a7a44659fc7"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8096247929156933`*^9, 
+  3.8096247937650537`*^9}},ExpressionUUID->"d358162b-2e59-490b-ae9f-\
+b2c4c641dc21"],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{
+  3.8096230705552406`*^9},ExpressionUUID->"70218333-56dc-4bdf-a548-\
+57651b97bf33"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{950.6999999999999, 473.7},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"09644e95-4bdc-44cb-9232-e3f392c8aa70"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 222, 4, 98, "Title",ExpressionUUID->"ce4ec1ce-37f4-4b8e-9df4-4b9c4fab791b"],
+Cell[805, 28, 318, 6, 35, "Text",ExpressionUUID->"5b5b2f5f-ffbc-4d19-8087-9179009705aa"],
+Cell[CellGroupData[{
+Cell[1148, 38, 264, 4, 67, "Section",ExpressionUUID->"e018ed72-3a4c-482b-8767-09edd29456cc"],
+Cell[1415, 44, 850, 17, 104, "Text",ExpressionUUID->"ead51f6b-239d-483d-90e3-9db0a4434e4d"],
+Cell[2268, 63, 521, 9, 67, "Input",ExpressionUUID->"04490af2-8e3c-4725-bd64-e557923a4b00"],
+Cell[2792, 74, 728, 15, 124, "Input",ExpressionUUID->"25208e47-210c-4a9a-80e0-9aea18e4b178"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3557, 94, 251, 4, 67, "Section",ExpressionUUID->"5c076d0e-f35e-49f3-9fc8-c3e0baa60834"],
+Cell[3811, 100, 633, 12, 104, "Text",ExpressionUUID->"db32cf07-bf98-4886-99c4-b7919ec6abb2"],
+Cell[CellGroupData[{
+Cell[4469, 116, 463, 10, 53, "Item",ExpressionUUID->"6a5e9d75-a858-4af3-8c86-3408583d3939"],
+Cell[4935, 128, 449, 10, 32, "Item",ExpressionUUID->"13742c75-05b6-4c2f-a575-4badc65158b9"]
+}, Open  ]],
+Cell[5399, 141, 737, 21, 58, "Text",ExpressionUUID->"a64c4943-80e9-468d-a0a0-b01546621a88"],
+Cell[6139, 164, 538, 10, 86, "Input",ExpressionUUID->"5bacc937-1a73-4321-9f33-3022c912caea"],
+Cell[6680, 176, 283, 6, 28, "Input",ExpressionUUID->"d0008db0-b2d3-4db7-80ac-38e7156e6077"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7000, 187, 291, 5, 67, "Section",ExpressionUUID->"68f2b286-9dae-4f8a-bd8d-955fb3189cee"],
+Cell[7294, 194, 846, 14, 104, "Text",ExpressionUUID->"b3e0bfe9-856d-46a0-97c1-51e6438dd5a9"],
+Cell[8143, 210, 337, 6, 28, "Input",ExpressionUUID->"1763f45c-1da2-4c06-8ad7-28a46a1b64b9"],
+Cell[8483, 218, 939, 18, 86, "Input",ExpressionUUID->"e9adeae2-7ddd-4fe5-8d2b-a6061ad9303b"],
+Cell[9425, 238, 716, 12, 86, "Input",ExpressionUUID->"50ad2f39-c1a8-4974-a779-2b01967f1810"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10178, 255, 255, 4, 67, "Section",ExpressionUUID->"e58ae227-8952-4e88-b50c-ef48f61b5be6"],
+Cell[10436, 261, 1199, 22, 173, "Text",ExpressionUUID->"798b7dcf-bbae-4a65-b02e-8ea2ccc082b9"],
+Cell[11638, 285, 552, 10, 28, "Input",ExpressionUUID->"dd2a206a-0b15-4569-971e-39d9fd6207ff"],
+Cell[12193, 297, 368, 6, 48, InheritFromParent,ExpressionUUID->"831f841d-98d5-4e32-94d7-6ba619579f12"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12598, 308, 252, 4, 67, "Section",ExpressionUUID->"cd2c0f2e-561b-4c0e-baef-20bf6a9783e5"],
+Cell[12853, 314, 524, 11, 35, "Text",ExpressionUUID->"231d9094-83d5-487d-86e9-5b6e4b244381"],
+Cell[CellGroupData[{
+Cell[13402, 329, 467, 12, 32, "Item",ExpressionUUID->"7e2ec1c5-4c01-4d3f-a70f-6ffe3a2f70c3"],
+Cell[13872, 343, 543, 16, 32, "Item",ExpressionUUID->"3071615a-e359-4d6d-8fda-ed14ca69155b"]
+}, Open  ]],
+Cell[14430, 362, 802, 18, 81, "Text",ExpressionUUID->"c86aabf7-6c97-47aa-815f-c9a858019de2"],
+Cell[15235, 382, 615, 13, 86, "Input",ExpressionUUID->"d3f8edc1-9ccc-4208-8ca7-cb50492b7814"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15887, 400, 253, 4, 67, "Section",ExpressionUUID->"d7157366-1e37-46ea-9cb6-2580d77a7b08"],
+Cell[16143, 406, 998, 21, 127, "Text",ExpressionUUID->"0f2d2b8b-4a52-4ab5-87a8-d5cf53567431"],
+Cell[17144, 429, 392, 6, 28, "Input",ExpressionUUID->"496bb8ca-9bf7-4c06-8fbb-9a7a44659fc7"],
+Cell[17539, 437, 156, 3, 28, InheritFromParent,ExpressionUUID->"d358162b-2e59-490b-ae9f-b2c4c641dc21"],
+Cell[17698, 442, 131, 3, 28, "Input",ExpressionUUID->"70218333-56dc-4bdf-a548-57651b97bf33"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
