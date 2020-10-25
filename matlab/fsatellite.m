@@ -10,6 +10,7 @@ if nargin==1 % nargin stores the number of arguments put in with the function
 elseif nargin ==0 
     error("Invalid input")    
 end
+
 % Defining constants
 mts = 60;
 hts= 3600;
@@ -62,6 +63,7 @@ title('Orbital Velocity')
 
 end
 
+% Local Functions
 function H = mtokm(h)
      % Converts input from meters to kilometers
      H = h./1000;
@@ -70,3 +72,4 @@ function h = kmtom(H)
      % Converts input from kilometers to meters
      h = 1000.*H;
 end
+
