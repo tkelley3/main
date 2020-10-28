@@ -10,7 +10,7 @@ M = 5.98*10**(24);
 R = 6.371*10**(6);
 
 
-def satellite(T,grph = 0,un='hr'):
+def satellite(T,un='hr',grph = 0):
     if un=="hr" or un=="hour":
         t = 3600*T;
     elif un == "day" or un == "dy":
@@ -51,4 +51,3 @@ def fig(x,y,xlab='period of orbit (hours)',ylab='altitude (km)'):
     pyp.plot(x,y)
     pyp.xlabel(xlab)
     pyp.ylabel(ylab)
-    
