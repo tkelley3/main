@@ -16,7 +16,7 @@ for j = 1:h:tmax
     Tpoints(j) = NT;
     Pbpoints(j) = NPb;
     
-    part = rand(int64(NT),1);
+    part = rand(int64(NT),1);%uniform draw
     dcay = sum(part<p);
     
     NT = NT - dcay;

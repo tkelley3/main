@@ -4,7 +4,7 @@ NT = 1000;
 NPb = 0;
 lifetime=3.053*60/log(2); % lifetime of Thallium in seconds
  
-times = sort(random('exp',lifetime,[NT+1 1]));
+times = sort(random('exp',lifetime,[NT+1 1]));% draw from exponential dist
 Tpoints = NT:-1:0;
 Pbpoints = 0:NT;
 
