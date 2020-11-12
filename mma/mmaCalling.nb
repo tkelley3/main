@@ -1,0 +1,522 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20452,        514]
+NotebookOptionsPosition[     16027,        434]
+NotebookOutlinePosition[     16464,        450]
+CellTagsIndexPosition[     16421,        447]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calling MATLAB and Python", "Title",
+ CellChangeTimes->{{3.8141095629412813`*^9, 
+  3.814109612714856*^9}},ExpressionUUID->"99cd6c73-a46e-4c6d-9225-\
+f130d421191c"],
+
+Cell[CellGroupData[{
+
+Cell["Calling MATLAB", "Section",
+ CellChangeTimes->{{3.8141095629412813`*^9, 3.8141096596721067`*^9}, {
+  3.814110011734288*^9, 
+  3.8141101196858807`*^9}},ExpressionUUID->"e0685cb4-9907-495e-8d29-\
+91bdecbca551"],
+
+Cell[TextData[{
+ "The best way to call MATLAB from Mathematica is through MATLink. You can \
+download MATLink.zip from the site ",
+ ButtonBox["http://matlink.org/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://matlink.org/"], None},
+  ButtonNote->"http://matlink.org/"],
+ ". Unzip the contents into the file destination that appears when running \
+the command:"
+}], "Text",
+ CellChangeTimes->{{3.8141095629412813`*^9, 3.8141096596721067`*^9}, {
+  3.814110011734288*^9, 
+  3.8141101061928735`*^9}},ExpressionUUID->"f6e0d04f-ab15-4412-b396-\
+baeb0d96f69e"],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "@", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{"$UserBaseDirectory", ",", "\"\<Applications\>\""}], "}"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8141095629412813`*^9, 3.8141095902029448`*^9}, {
+  3.814110503593749*^9, 3.8141105044605594`*^9}, {3.8141110591229362`*^9, 
+  3.8141110607549095`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"9a3996c1-d3da-4d4e-b5cd-82813dca26cd"],
+
+Cell[TextData[{
+ "Once the MATLink files are in the right directory, you will need to add a \
+path environment variable and run ",
+ StyleBox["regmatlabserver ",
+  FontSlant->"Italic"],
+ "in MATLAB (the details for your specific operating system are on  ",
+ ButtonBox["http://matlink.org/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://matlink.org/"], None},
+  ButtonNote->"http://matlink.org/"],
+ ")\n\nTo connect Mathematica to MATLAB, run (note - you probably shouldn\
+\[CloseCurlyQuote]t have MATLAB open when executing these lines )"
+}], "Text",
+ CellChangeTimes->{{3.8141095629412813`*^9, 3.8141095902029448`*^9}, {
+  3.814110503593749*^9, 3.8141106301717052`*^9}, {3.8141116906459637`*^9, 
+  3.8141117239157915`*^9}},ExpressionUUID->"d319f649-e8d5-441a-89c1-\
+a5d92e977393"],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<MATLink`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"OpenMATLAB", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.814110169983163*^9, 3.8141101699988365`*^9}, {
+  3.8141104922366743`*^9, 3.8141104933538895`*^9}, {3.8141114558147125`*^9, 
+  3.8141114566852665`*^9}, {3.8141114953224177`*^9, 3.8141115027501125`*^9}, {
+  3.8141117273044806`*^9, 3.814111727814763*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"af7bf41b-be85-47f0-b2d2-b0919bfd7c90"],
+
+Cell["\<\
+The function MEvaluate can now be used to execute MATLAB code\
+\>", "Text",
+ CellChangeTimes->{{3.814110169983163*^9, 3.8141101699988365`*^9}, {
+  3.8141104922366743`*^9, 3.8141104933538895`*^9}, {3.8141114558147125`*^9, 
+  3.8141114566852665`*^9}, {3.8141114953224177`*^9, 3.8141115027501125`*^9}, {
+  3.8141117273044806`*^9, 
+  3.8141117761297703`*^9}},ExpressionUUID->"a8bf8399-4ab4-4656-8689-\
+59a91dfc1108"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MEvaluate", "[", "\"\<m=magic(4)\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.814111472609172*^9, 3.8141114866216345`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"0f33e3ed-390b-4239-9a0b-f1fe37c3119a"],
+
+Cell[BoxData["\<\"m =\\n    16     2     3    13\\n     5    11    10     \
+8\\n     9     7     6    12\\n     4    14    15     1\\n\"\>"], "Output",
+ CellChangeTimes->{3.814111786328661*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"0308acd9-7823-4682-bd42-c02681f0296c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MEvaluate", "[", "\"\<x=fibonacci(1:9)\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.8141118041663647`*^9, 3.8141118139759164`*^9}, {
+  3.814111946891159*^9, 3.8141119844476304`*^9}, {3.814112082949233*^9, 
+  3.8141120905688024`*^9}, {3.8141127167313786`*^9, 3.8141127315368204`*^9}, {
+  3.814112852585744*^9, 3.814112876438788*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"6b656165-03d8-4fa6-b3bf-28baa78df611"],
+
+Cell[BoxData["\<\"x =\\n     1     1     2     3     5     8    13    21    \
+34\\n\"\>"], "Output",
+ CellChangeTimes->{
+  3.8141119693781614`*^9, 3.8141120930114737`*^9, {3.814112727890572*^9, 
+   3.814112732117023*^9}, {3.814112853690262*^9, 3.8141128778725595`*^9}},
+ CellLabel->"Out[24]=",ExpressionUUID->"3c703ee7-4dd3-4e8d-9453-c51b9605e76a"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Running MATLAB code does not mean that Mathematica will store the results \
+in its workspace. You will need ",
+ StyleBox["MGet",
+  FontSlant->"Italic"],
+ " and ",
+ StyleBox["MSet",
+  FontSlant->"Italic"],
+ " for that. "
+}], "Text",
+ CellChangeTimes->{{3.814111789729215*^9, 3.814111797097415*^9}, {
+   3.814112576995094*^9, 3.8141126639884996`*^9}, 
+   3.814112740069474*^9},ExpressionUUID->"5bad173c-6065-4312-8b38-\
+332f765e4506"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"m", "=", 
+  RowBox[{"MGet", "[", "\"\<m\>\"", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"x", " ", "=", 
+  RowBox[{"MGet", "[", "\"\<x\>\"", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.814111789729215*^9, 3.814111797097415*^9}, {
+  3.814112576995094*^9, 3.814112632746995*^9}, {3.8141126664038177`*^9, 
+  3.8141127084609222`*^9}, {3.8141128416375446`*^9, 3.8141128445184765`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"7c53d728-aaae-454c-b50b-8c5a110db702"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"16.`", ",", "2.`", ",", "3.`", ",", "13.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5.`", ",", "11.`", ",", "10.`", ",", "8.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9.`", ",", "7.`", ",", "6.`", ",", "12.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4.`", ",", "14.`", ",", "15.`", ",", "1.`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.814112682885079*^9, 3.814112734433258*^9}, 
+   3.814112847197181*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"5b3011c2-7ae0-4989-9e3f-323e8d44ba09"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.`", ",", "1.`", ",", "2.`", ",", "3.`", ",", "5.`", ",", "8.`", ",", 
+   "13.`", ",", "21.`", ",", "34.`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.814112682885079*^9, 3.814112734433258*^9}, 
+   3.8141128472021685`*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"f1d8a0e2-0908-4d46-8c83-20b5aec75a56"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"MSet", "[", 
+  RowBox[{"\"\<mtran\>\"", ",", 
+   RowBox[{"Transpose", "[", "m", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.814112745159659*^9, 3.814112788893069*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"c40ef141-c566-40c8-90e9-451a587285a6"],
+
+Cell[TextData[{
+ StyleBox["mtran",
+  FontSlant->"Italic"],
+ " has been created in the MATLAB workspace and can be used"
+}], "Text",
+ CellChangeTimes->{{3.8141129335452623`*^9, 
+  3.8141129710372844`*^9}},ExpressionUUID->"6b492982-644b-4b3b-8aad-\
+048615c0f9e4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MEvaluate", "[", "\"\<mtran == transpose(m)\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.814112973550389*^9, 3.8141130417631216`*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"48a02126-885f-4d85-8da3-6e9226d9cdb5"],
+
+Cell[BoxData["\<\"ans =\\n  4x4 logical array\\n   1   1   1   1\\n   1   1   \
+1   1\\n   1   1   1   1\\n   1   1   1   1\\n\"\>"], "Output",
+ CellChangeTimes->{3.8141130069310803`*^9, 3.8141130425904784`*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"ef6a577d-0bf9-4960-9cb9-c4edf6e117af"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Running Scripts and Functions", "Subsection",
+ CellChangeTimes->{{3.8141130933486643`*^9, 
+  3.814113130165413*^9}},ExpressionUUID->"965170ae-cee6-48a4-a529-\
+079fa3fe9f1f"],
+
+Cell[TextData[{
+ "You can run scripts and functions in Mathematica using ",
+ StyleBox["MScript",
+  FontSlant->"Italic"],
+ " and ",
+ StyleBox["MFunction",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.8141130933486643`*^9, 
+  3.8141131721863337`*^9}},ExpressionUUID->"6347dd8a-eb47-4271-9364-\
+0dc82c6adc79"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"iso", " ", "=", " ", 
+  RowBox[{"MScript", "[", 
+   RowBox[{
+   "\"\<isotope\>\"", ",", 
+    "\"\<NT = 1000;\nNPb = 0;\nhalflife=3.053*60; \nh =1.0; % time steps\np = \
+1-2^(-h/halflife);\ntmax=1000;\nt=1:h:tmax;\nTpoints = [];\nPbpoints =[];\n\n\
+for j = 1:h:tmax\n    dcay=0;\n    Tpoints(j) = NT;\n    Pbpoints(j) = NPb;\n \
+   \n    part = rand(int64(NT),1);\n    dcay = sum(part<p);\n    \n    NT = \
+NT - dcay;\n    NPb = NPb +dcay;\nend\ntmax\n\
+plot(t,Tpoints,'r-',t,Pbpoints,'b-')\nhold on\nlegend('Thallium', 'Lead')\n\
+xlabel('Time')\nylabel('Number of Atoms')\nhold off\>\""}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.8141130933486643`*^9, 3.814113189353614*^9}, {
+  3.8141133320000315`*^9, 3.8141134359604187`*^9}, {3.814113466605028*^9, 
+  3.814113467952217*^9}, {3.814113546960577*^9, 3.814113588849038*^9}, {
+  3.8141136865352573`*^9, 3.8141136955882626`*^9}, {3.81411373127028*^9, 
+  3.814113747345252*^9}, {3.814113816183771*^9, 3.8141138170531425`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"0e230695-5dd2-4c22-b462-517722be08da"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MScript", "owrt", 
+   "\"An \\!\\(\\*RowBox[{\\\"\\\\\\\"MScript\\\\\\\"\\\"}]\\) by that name \
+already exists. Use \\\"Overwrite\\\" -> True to overwrite.\"", 2, 6, 1, 
+   21106022395798356348, "Local", "MATLink`MScript"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.814113820922886*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"aa6c4016-9828-4a9b-8bac-337e6751b9cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MEvaluate", "[", "iso", "]"}]], "Input",
+ CellChangeTimes->{{3.8141134551540303`*^9, 3.814113458198475*^9}, {
+  3.8141137662884617`*^9, 3.8141137907283316`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"8380a5ef-e901-4d81-8a62-d7d7f0423220"],
+
+Cell[BoxData["\<\"\"\>"], "Output",
+ CellChangeTimes->{
+  3.8141134590684958`*^9, {3.81411378157193*^9, 3.814113794979251*^9}, 
+   3.8141140104961314`*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"dde08f1e-221b-4afd-9991-58cb31ea7927"]
+}, Open  ]],
+
+Cell["\<\
+With MFunction you can define built in functions not available in Mathematica\
+\>", "Text",
+ CellChangeTimes->{{3.8141138751196117`*^9, 3.814113888243552*^9}, {
+  3.814113954493084*^9, 
+  3.8141139623888874`*^9}},ExpressionUUID->"22a90672-1d62-4964-8d6e-\
+68b610e85f71"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"magic", " ", "=", 
+   RowBox[{"MFunction", "[", "\"\<magic\>\"", "]"}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8141138751196117`*^9, 3.814113888243552*^9}, {
+  3.814113954493084*^9, 3.814113982297613*^9}, {3.8141140531003733`*^9, 
+  3.8141140564399776`*^9}},ExpressionUUID->"ecbc2095-882b-43a6-8fae-\
+8a226940c138"],
+
+Cell[BoxData[
+ RowBox[{"MFunction", "[", "\<\"magic\"\>", "]"}]], "Output",
+ CellChangeTimes->{3.814113983610533*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"462b23d9-3dec-4a09-b4ef-a7030e317d8c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"magic", "[", "5", "]"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.814113985826351*^9, 3.8141140321282167`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"9f5279c8-41f9-4bde-bcd9-92705a468db8"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"17.`", "24.`", "1.`", "8.`", "15.`"},
+     {"23.`", "5.`", "7.`", "14.`", "16.`"},
+     {"4.`", "6.`", "13.`", "20.`", "22.`"},
+     {"10.`", "12.`", "19.`", "21.`", "3.`"},
+     {"11.`", "18.`", "25.`", "2.`", "9.`"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.814113989420989*^9, {3.81411402125688*^9, 3.814114032629121*^9}},
+ CellLabel->
+  "Out[11]//MatrixForm=",ExpressionUUID->"26a9487c-ad4b-465c-b058-\
+54dbd346b16c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calling Python", "Section",
+ CellChangeTimes->{{3.8141146849722652`*^9, 
+  3.814114687800047*^9}},ExpressionUUID->"ad22c207-472e-4972-8d88-\
+b12f82ad757a"],
+
+Cell[TextData[{
+ "Calling Python from Mathematica requires the function ",
+ StyleBox["ExternalEvaluate[]. ",
+  FontSlant->"Italic"],
+ "You may have to tell Mathematica where Python is installed,"
+}], "Text",
+ CellChangeTimes->{{3.8141146820721903`*^9, 
+  3.8141148034291973`*^9}},ExpressionUUID->"88d13944-4c19-43ef-8432-\
+671fa164dc6b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RegisterExternalEvaluator", "[", 
+  RowBox[{
+  "\"\<Python\>\"", ",", 
+   "\"\<C:\\\\Users\\\\Tom \
+K\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python39\\\\pythonw.exe\>\""}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.8141146820721903`*^9, 3.8141148246708546`*^9}, {
+   3.8141149382337093`*^9, 3.8141149752591653`*^9}, {3.8141164802884884`*^9, 
+   3.8141164851581244`*^9}, 3.8141165280233135`*^9, {3.8141166669431353`*^9, 
+   3.814116676137086*^9}, {3.814116979340499*^9, 3.8141170444385138`*^9}, 
+   3.8141341225977507`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"0469d2e8-4faf-406e-bdbe-9c1022b41c2f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StartExternalSession", "depend", 
+   "\"The installation does not have the required dependencies.\"", 2, 1, 1, 
+   21106156804302427289, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.8141170460462217`*^9, {3.8141341070210896`*^9, 3.8141341254906473`*^9}, 
+   3.814134185309863*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"caa98566-cf62-421a-8c7f-fd9d95b13b49"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{{3.8141170241321707`*^9, 3.814117046095322*^9}, {
+   3.814134107097509*^9, 3.814134125702486*^9}, 3.8141341854736753`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"8c54b45c-043a-4bfc-88f4-108532f5c505"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"ExternalEvaluate", "[", 
+   RowBox[{"\"\<Python\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{"\"\<def f(x): return x**2\>\"", ",", "\"\<f(3)\>\""}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.814114736457979*^9, 3.814114754734481*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"0a6f264d-9fd3-4df0-b7e0-4e6ebf6eb90e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "StartExternalSession", "noinstall", 
+   "\"No valid installations for system \\!\\(\\*RowBox[{\\\"\\\\\\\"Python\\\
+\\\\\"\\\"}]\\) were found with the options specified.\"", 2, 12, 9, 
+   21106027252694808849, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8141147431588845`*^9, 3.81411702951441*^9},
+ CellLabel->
+  "During evaluation of \
+In[12]:=",ExpressionUUID->"23d153de-af0a-4b97-a182-45ad0cfa9fca"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.814114743252619*^9, 3.814117029521418*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"68e4494f-9722-47e8-9e3d-25b2a3bc8aa0"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["This is unfortunately broken for the anaconda install \
+of python??",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.814117070501442*^9, 
+  3.8141170921726923`*^9}},ExpressionUUID->"23f3e50a-d940-411b-8d5c-\
+69d578f8bd6a"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{573.9, 422.09999999999997`},
+WindowMargins->{{188.1, Automatic}, {15.900000000000034`, Automatic}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"08edb6aa-adbe-47ce-b9c8-968d0da815a9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 170, 3, 98, "Title",ExpressionUUID->"99cd6c73-a46e-4c6d-9225-f130d421191c"],
+Cell[CellGroupData[{
+Cell[775, 29, 214, 4, 67, "Section",ExpressionUUID->"e0685cb4-9907-495e-8d29-91bdecbca551"],
+Cell[992, 35, 567, 14, 104, "Text",ExpressionUUID->"f6e0d04f-ab15-4412-b396-baeb0d96f69e"],
+Cell[1562, 51, 438, 9, 28, "Input",ExpressionUUID->"9a3996c1-d3da-4d4e-b5cd-82813dca26cd"],
+Cell[2003, 62, 793, 17, 150, "Text",ExpressionUUID->"d319f649-e8d5-441a-89c1-a5d92e977393"],
+Cell[2799, 81, 487, 7, 48, "Input",ExpressionUUID->"af7bf41b-be85-47f0-b2d2-b0919bfd7c90"],
+Cell[3289, 90, 422, 8, 35, "Text",ExpressionUUID->"a8bf8399-4ab4-4656-8689-59a91dfc1108"],
+Cell[CellGroupData[{
+Cell[3736, 102, 225, 3, 28, "Input",ExpressionUUID->"0f33e3ed-390b-4239-9a0b-f1fe37c3119a"],
+Cell[3964, 107, 271, 3, 128, "Output",ExpressionUUID->"0308acd9-7823-4682-bd42-c02681f0296c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4272, 115, 435, 6, 28, "Input",ExpressionUUID->"6b656165-03d8-4fa6-b3bf-28baa78df611"],
+Cell[4710, 123, 348, 5, 71, "Output",ExpressionUUID->"3c703ee7-4dd3-4e8d-9453-c51b9605e76a"]
+}, Open  ]],
+Cell[5073, 131, 450, 13, 58, "Text",ExpressionUUID->"5bad173c-6065-4312-8b38-332f765e4506"],
+Cell[CellGroupData[{
+Cell[5548, 148, 481, 8, 48, "Input",ExpressionUUID->"7c53d728-aaae-454c-b50b-8c5a110db702"],
+Cell[6032, 158, 582, 14, 52, "Output",ExpressionUUID->"5b3011c2-7ae0-4989-9e3f-323e8d44ba09"],
+Cell[6617, 174, 344, 7, 32, "Output",ExpressionUUID->"f1d8a0e2-0908-4d46-8c83-20b5aec75a56"]
+}, Open  ]],
+Cell[6976, 184, 274, 5, 28, "Input",ExpressionUUID->"c40ef141-c566-40c8-90e9-451a587285a6"],
+Cell[7253, 191, 261, 7, 35, "Text",ExpressionUUID->"6b492982-644b-4b3b-8aad-048615c0f9e4"],
+Cell[CellGroupData[{
+Cell[7539, 202, 237, 3, 28, "Input",ExpressionUUID->"48a02126-885f-4d85-8da3-6e9226d9cdb5"],
+Cell[7779, 207, 290, 3, 148, "Output",ExpressionUUID->"ef6a577d-0bf9-4960-9cb9-c4edf6e117af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8106, 215, 179, 3, 54, "Subsection",ExpressionUUID->"965170ae-cee6-48a4-a529-079fa3fe9f1f"],
+Cell[8288, 220, 318, 10, 58, "Text",ExpressionUUID->"6347dd8a-eb47-4271-9364-0dc82c6adc79"],
+Cell[CellGroupData[{
+Cell[8631, 234, 1102, 18, 564, "Input",ExpressionUUID->"0e230695-5dd2-4c22-b462-517722be08da"],
+Cell[9736, 254, 444, 10, 23, "Message",ExpressionUUID->"aa6c4016-9828-4a9b-8bac-337e6751b9cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10217, 269, 263, 4, 28, "Input",ExpressionUUID->"8380a5ef-e901-4d81-8a62-d7d7f0423220"],
+Cell[10483, 275, 233, 4, 32, "Output",ExpressionUUID->"dde08f1e-221b-4afd-9991-58cb31ea7927"]
+}, Open  ]],
+Cell[10731, 282, 280, 6, 58, "Text",ExpressionUUID->"22a90672-1d62-4964-8d6e-68b610e85f71"],
+Cell[CellGroupData[{
+Cell[11036, 292, 373, 8, 48, "Input",ExpressionUUID->"ecbc2095-882b-43a6-8fae-8a226940c138"],
+Cell[11412, 302, 195, 3, 32, "Output",ExpressionUUID->"462b23d9-3dec-4a09-b4ef-a7030e317d8c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11644, 310, 238, 4, 28, "Input",ExpressionUUID->"9f5279c8-41f9-4bde-bcd9-92705a468db8"],
+Cell[11885, 316, 860, 23, 112, "Output",ExpressionUUID->"26a9487c-ad4b-465c-b058-54dbd346b16c"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12806, 346, 161, 3, 67, "Section",ExpressionUUID->"ad22c207-472e-4972-8d88-b12f82ad757a"],
+Cell[12970, 351, 337, 8, 81, "Text",ExpressionUUID->"88d13944-4c19-43ef-8432-671fa164dc6b"],
+Cell[CellGroupData[{
+Cell[13332, 363, 630, 12, 86, "Input",ExpressionUUID->"0469d2e8-4faf-406e-bdbe-9c1022b41c2f"],
+Cell[13965, 377, 446, 11, 27, "Message",ExpressionUUID->"caa98566-cf62-421a-8c7f-fd9d95b13b49"],
+Cell[14414, 390, 254, 3, 45, "Output",ExpressionUUID->"8c54b45c-043a-4bfc-88f4-108532f5c505"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14705, 398, 381, 8, 48, "Input",ExpressionUUID->"0a6f264d-9fd3-4df0-b7e0-4e6ebf6eb90e"],
+Cell[15089, 408, 463, 10, 42, "Message",ExpressionUUID->"23d153de-af0a-4b97-a182-45ad0cfa9fca"],
+Cell[15555, 420, 177, 2, 32, "Output",ExpressionUUID->"68e4494f-9722-47e8-9e3d-25b2a3bc8aa0"]
+}, Open  ]],
+Cell[15747, 425, 252, 5, 35, "Text",ExpressionUUID->"23f3e50a-d940-411b-8d5c-69d578f8bd6a"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
